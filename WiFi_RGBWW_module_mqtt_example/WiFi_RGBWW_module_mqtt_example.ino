@@ -1,7 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>	// https://github.com/Imroy/pubsubclient
 
-
 // #define PWMRANGE 255
 // #define PWM_VALUE 31
 //int gamma_table[PWM_VALUE+1] = {
@@ -55,12 +54,13 @@ int gamma_table[PWM_VALUE+1] = {
 //const char *ssid =  "*************";  //  your network SSID (name)
 //const char *pass =  "********";       // your network password
 
-const char *ssid =  "Luftnetz_2GHz";    // cannot be longer than 32 characters!
-const char *pass =  "achtung!warnschuss!";    //
+const char *ssid =  "HomeWiFi";    // cannot be longer than 32 characters!
+const char *pass =  "navi3com";    //
 
 
 // Update these with values suitable for your network.
-IPAddress server(192, 168, 2, 10);
+IPAddress server(192, 168, 1, 29);
+WiFiClient wclient;
 
 void callback(const MQTT::Publish& pub) {
   Serial1.print(pub.topic());
